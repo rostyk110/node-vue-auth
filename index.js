@@ -11,11 +11,11 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(passport.initialize());
-require('./middleware/passport')(passport);
-
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(passport.initialize());
+require('./middleware/passport')(passport);
 
 app.use('/login', loginRoutes);
 app.use('/signup', registerRoutes);
